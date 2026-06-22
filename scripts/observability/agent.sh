@@ -25,7 +25,8 @@ observability_agent_install_nowait() {
         --namespace suse-observability --create-namespace \
         --set stackstate.apiKey="${ingestion_api_key}" \
         --set stackstate.url="${url%/}/receiver/stsAgent" \
-        --set stackstate.cluster.name="${cluster_name}"
+        --set stackstate.cluster.name="${cluster_name}" \
+        --set kubernetes-rbac-agent.enabled=false
 }
 
 #######################################
