@@ -8,11 +8,11 @@
 #
 # Examples:
 #   Downloading scripts from a "develop" branch in a temp local folder "temp":
-#     curl -sfL https://raw.githubusercontent.com/SUSE/lab-setup/feature/init-solution/scripts/setup.sh | GIT_REVISION=refs/heads/develop sh -s -- -o temp
+#     curl -sfL https://raw.githubusercontent.com/ranchergovernment-sandbox/lab-setup/feature/init-solution/scripts/download.sh | GIT_REVISION=refs/heads/develop sh -s -- -o temp
 #   Downloading scripts from a specific revision "d8b7564fbf91473074e86b598ae06c7e4e522b9f" in the default local folder:
-#     curl -sfL https://raw.githubusercontent.com/SUSE/lab-setup/feature/init-solution/scripts/setup.sh | GIT_REVISION=d8b7564fbf91473074e86b598ae06c7e4e522b9f sh -
+#     curl -sfL https://raw.githubusercontent.com/ranchergovernment-sandbox/lab-setup/feature/init-solution/scripts/download.sh | GIT_REVISION=d8b7564fbf91473074e86b598ae06c7e4e522b9f sh -
 #   Testing locally the setup script:
-#     GIT_REVISION=refs/heads/feature/init-solution ./lab-setup/scripts/setup.sh -o temp
+#     GIT_REVISION=refs/heads/feature/init-solution ./lab-setup/scripts/index.sh -o temp
 #
 # Environment variables:
 #   - GIT_REVISION
@@ -60,7 +60,7 @@ setup_env() {
 
 download() {
   info 'Download scripts'
-  wget -nv https://github.com/SUSE/${GIT_REPO_NAME}/archive/${GIT_REVISION}.zip -O ${GIT_REPO_NAME}.zip
+  wget -nv https://github.com/ranchergovernment-sandbox/${GIT_REPO_NAME}/archive/${GIT_REVISION}.zip -O ${GIT_REPO_NAME}.zip
   unzip -q -o ${GIT_REPO_NAME}.zip
   mkdir -p ${OUTPUT_FOLDER}
   if [ -d ${OUTPUT_FOLDER}/scripts ]; then
